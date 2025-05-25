@@ -1,5 +1,6 @@
 package com.sk.finovia.controller;
 
+import com.sk.finovia.model.CustomResponse;
 import com.sk.finovia.model.Customer;
 import com.sk.finovia.service.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class UserRegistrationController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Validated @RequestBody Customer customer) {
-        Customer cust = userRegistrationService.registerNewCustomer(customer);
-        return new ResponseEntity<>(cust, HttpStatus.OK);
+        CustomResponse customer1 = userRegistrationService.registerNewCustomer(customer);
+        return new ResponseEntity<>(customer1, HttpStatus.OK);
     }
 
 
